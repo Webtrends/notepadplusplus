@@ -18,10 +18,11 @@
 
 
 if platform?("windows")
-    windows_package "Notepad++" do
-        source node['notepadplusplus']['http_url']
+    windows_package 'Notepad++ (32-bit x86)' do
+        source node['notepadplusplus']['url']
+        checksum node['notepadplusplus']['checksum']
         installer_type :custom
-        options "/S"
+        options '/S'
         action :install
     end
 else
