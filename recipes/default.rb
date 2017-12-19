@@ -16,15 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-if platform?("windows")
-    windows_package 'Notepad++ (32-bit x86)' do
-        source node['notepadplusplus']['url']
-        checksum node['notepadplusplus']['checksum']
-        installer_type :custom
-        options '/S'
-        action :install
-    end
+if platform?('windows')
+  windows_package 'Notepad++ (32-bit x86)' do
+    source node['notepadplusplus']['url']
+    checksum node['notepadplusplus']['checksum']
+    installer_type :custom
+    options '/S'
+    action :install
+  end
 else
   Chef::Log.warn('Notepad++ can only be installed on the Windows platform.')
 end
